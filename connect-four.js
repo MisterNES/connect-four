@@ -3,15 +3,27 @@ import { Game } from './game.js';
 let game = undefined;
 function updateUI() {
     const boardHolder = document.getElementById("board-holder");
-    if (game === undefined){        const boardHolder = document.getElementById("board-holder");
+    if (game === undefined) {
+        const boardHolder = document.getElementById("board-holder");
         boardHolder.classList.add("is-invisible"); //adds boardHolder to the is-invisible class
-    }
-    else if (game !== undefined){
+    } else if (game !== undefined) {
         boardHolder.classList.remove("is-invisible") //removes boardHolder from the is-invisible class
         let gameName = document.getElementById("game-name");
-        gameName.innerHTML= game.getName(); //
+        gameName.innerHTML = game.getName(); //
     }
+
+
+    if (game.currentPlayer === 1) {
+        clickTargets.classList.add("black");
+        clickTargets.classList.remove("red");
+    } else if (game.currentPlayer === 2) {
+        clickTargets.classList.add("red");
+        clickTargets.classList.remove("black");
+    }
+
 }
+
+let clickTargets = document.getElementById("click-targets");
 
 window.addEventListener("DOMContentLoaded", event => {
 
@@ -24,7 +36,7 @@ window.addEventListener("DOMContentLoaded", event => {
         // if (player1.value && player.value){
         //     newGameButton.disabled = false;
         player2.addEventListener("keyup", event => {
-                newGameButton.disabled = false;
+            newGameButton.disabled = false;
         })
     })
 
@@ -33,6 +45,11 @@ window.addEventListener("DOMContentLoaded", event => {
         player1.value = "";
         player2.value = "";
         newGameButton.disabled = true;
+        updateUI();
+    })
+
+    clickTargets.addEventListener("click", event => {
+        game.playInColumn();
         updateUI();
     })
 

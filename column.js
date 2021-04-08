@@ -15,7 +15,6 @@ export class Column {
     getTokenAt(rowIndex) {
         return this.spots[rowIndex];
 
-
         // if (this.spots[spot] === 1) {
         //     return 1;
         // } else if (this.spots[spot] === 2) {
@@ -23,5 +22,13 @@ export class Column {
         // } else {
         //     return null;
         // }
+    }
+
+    isFull() {
+        if (this.spots[0]) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

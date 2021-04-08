@@ -42,6 +42,15 @@ function updateUI() {
             }
         }
     }
+
+    for (let i = 0; i <= 6; i++) {
+        let column = document.getElementById(`column-${i}`);
+        if (game.isColumnFull(i) === true) {
+            column.classList.add("full");
+        } else if (game.isColumnFull(i) === false) {
+            column.classList.remove("full");
+        }
+    }
 }
 
 let clickTargets = document.getElementById("click-targets");
@@ -70,7 +79,6 @@ window.addEventListener("DOMContentLoaded", event => {
     })
 
     clickTargets.addEventListener("click", event => {
-        console.log();
         // console.log(Number.parseInt(event.target.id));
         game.playInColumn(Number.parseInt(event.target.id[event.target.id.length - 1]));
         updateUI();

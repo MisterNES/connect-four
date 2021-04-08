@@ -35,12 +35,12 @@ export class ColumnWinInspector {
       ) {
         // console.log("next:", this.column.spots[i], this.column.spots[i + 1]);
         ++streak;
-        console.log("increased streak:", streak);
+        // console.log("increased streak:", streak);
       } else {
         streak = 1;
       }
       if (streak === 4) {
-        console.log("winner:", this.column.spots[i]);
+        // console.log("winner:", this.column.spots[i]);
         return this.column.spots[i];
       }
     }

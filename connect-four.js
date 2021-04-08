@@ -28,7 +28,7 @@ function updateUI() {
             square.innerHTML = "";
             let result = game.getTokenAt(i, j);
             // console.log(result);
-            console.log(i, j)
+            // console.log(i, j)
             if (result === 1) {
                 let div = document.createElement('div');
                 div.classList.add("token");

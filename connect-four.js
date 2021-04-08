@@ -21,18 +21,20 @@ function updateUI() {
         clickTargets.classList.remove("black");
     }
 
-    for (let i = 0; i <= 5; i++){
-        for (let j = 0; j <= 6; j++){
+    for (let i = 0; i <= 5; i++) {
+        for (let j = 0; j <= 6; j++) {
             let square = document.querySelector(`#square-${i}-${j}`);
+            // console.log(square);
             square.innerHTML = "";
-            console.log(square);
             let result = game.getTokenAt(i, j);
-            if (result === 1){
+            // console.log(result);
+            console.log(i, j)
+            if (result === 1) {
                 let div = document.createElement('div');
                 div.classList.add("token");
                 div.classList.add("black");
                 square.appendChild(div);
-            } else if (result === 2){
+            } else if (result === 2) {
                 let div = document.createElement('div')
                 div.classList.add("token");
                 div.classList.add("red");
@@ -70,7 +72,7 @@ window.addEventListener("DOMContentLoaded", event => {
     clickTargets.addEventListener("click", event => {
         console.log();
         // console.log(Number.parseInt(event.target.id));
-        game.playInColumn(Number.parseInt(event.target.id[event.target.id.length-1]));
+        game.playInColumn(Number.parseInt(event.target.id[event.target.id.length - 1]));
         updateUI();
     })
 

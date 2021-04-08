@@ -12,7 +12,7 @@ export class Game {
     }
 
     playInColumn(colIdx) {
-        this.columns[colIdx].add();
+        this.columns[colIdx].add(this.currentPlayer);
         if (this.currentPlayer === 1) {
             this.currentPlayer = 2;
         } else if (this.currentPlayer === 2) {
@@ -20,7 +20,7 @@ export class Game {
         }
     }
 
-    getTokenAt(rowIdx, colIdx){
-        this.columns[colIdx].getTokenAt(rowIdx);
+    getTokenAt(rowIdx, colIdx) {
+        return this.columns[colIdx].getTokenAt(rowIdx);
     }
 }
